@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Personalized Skin, Hair & Body Care Intelligence</title>
+    <meta name="description" content="Personalized skincare, hair care, and body care recommendations tailored to dry, oily, combination, and sensitive profiles.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header" id="site-header">
+        <div class="nav-container">
+            <div class="brand-logo" id="brand-logo-btn">
+                <span class="logo-symbol">✦</span>
+                <span class="logo-text">AURA</span>
+                <span class="logo-sub">BEAUTY INTELLIGENCE</span>
+            </div>
+
+            <!-- Flow Stepper Indicator -->
+            <div class="flow-stepper" id="flow-stepper">
+                <div class="step-node active" id="step-node-1" data-step="1">
+                    <span class="step-num">1</span>
+                    <span class="step-label">Login</span>
+                </div>
+                <div class="step-line" id="step-line-1"></div>
+                <div class="step-node" id="step-node-2" data-step="2">
+                    <span class="step-num">2</span>
+                    <span class="step-label">Category</span>
+                </div>
+                <div class="step-line" id="step-line-2"></div>
+                <div class="step-node" id="step-node-3" data-step="3">
+                    <span class="step-num">3</span>
+                    <span class="step-label">Skin/Hair Type</span>
+                </div>
+                <div class="step-line" id="step-line-3"></div>
+                <div class="step-node" id="step-node-4" data-step="4">
+                    <span class="step-num">4</span>
+                    <span class="step-label">Recommendations</span>
+                </div>
+            </div>
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <button class="nav-btn-icon" id="open-routine-btn" title="View My Routine" style="display: none;">
+                    <span>📋 Routine</span>
+                    <span class="routine-count-badge" id="routine-count-badge">0</span>
+                </button>
+                <div class="user-profile-badge" id="user-badge-btn" style="display: none;">
+                    <div class="avatar-circle" id="user-avatar-initial">G</div>
+                    <span class="user-display-name" id="user-display-name">Guest</span>
+                    <button class="logout-btn" id="logout-btn" title="Sign Out">Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container Hosting the 4 Dashboards -->
+    <main class="main-container">
+
+        <!-- ===================================================================
+             DASHBOARD 1: LOGIN & REGISTRATION PAGE
+             =================================================================== -->
+        <section class="dashboard-page active" id="dashboard-1-login">
+            <div class="login-wrapper">
+                <div class="login-hero-copy">
+                    <span class="hero-kicker">CELLULAR DERMAL CARE</span>
+                    <h1 class="hero-headline">Personalized Beauty Regimens Engineered For You.</h1>
+                    <p class="hero-description">
+                        Unlock science-backed product formulations tailored to your exact skin barrier, hair strand texture, and body hydration profile.
+                    </p>
+                    <div class="hero-feature-pills">
+                        <span class="feature-pill">✦ Facial Skincare Matching</span>
+                        <span class="feature-pill">✦ Scalp & Strand Biome</span>
+                        <span class="feature-pill">✦ Barrier Body Solutions</span>
+                    </div>
+                </div>
+
+                <div class="auth-card-container">
+                    <div class="auth-card">
+                        <div class="auth-card-tabs">
+                            <button class="auth-card-tab active" id="tab-login-btn">Sign In</button>
+                            <button class="auth-card-tab" id="tab-register-btn">Create Account</button>
+                        </div>
+
+                        <!-- Sign In Form -->
+                        <form class="auth-form active" id="login-form">
+                            <h2 class="auth-title">Welcome to AURA</h2>
+                            <p class="auth-subtitle">Sign in to start your personalized consultation.</p>
+
+                            <div class="form-group">
+                                <label for="login-username">Username or Email</label>
+                                <input type="text" id="login-username" placeholder="e.g. sophia_beauty" required value="guest_beauty">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="login-password">Password</label>
+                                <input type="password" id="login-password" placeholder="••••••••" required value="secret123">
+                            </div>
+
+                            <div class="auth-feedback" id="login-feedback"></div>
+
+                            <button type="submit" class="btn btn-primary btn-block">Sign In & Continue →</button>
+
+                            <div class="auth-divider"><span>OR</span></div>
+                            <button type="button" class="btn btn-guest btn-block" id="guest-login-btn">
+                                Instant Guest Explorer Login
+                            </button>
+                        </form>
+
+                        <!-- Register Form -->
+                        <form class="auth-form" id="register-form">
+                            <h2 class="auth-title">Begin Your Dermal Profile</h2>
+                            <p class="auth-subtitle">Create an account to save tailored regimens.</p>
+
+                            <div class="form-group">
+                                <label for="reg-fullname">Full Name</label>
+                                <input type="text" id="reg-fullname" placeholder="e.g. Sophia Vance" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg-username">Username</label>
+                                <input type="text" id="reg-username" placeholder="e.g. sophiav" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg-email">Email Address</label>
+                                <input type="email" id="reg-email" placeholder="sophia@example.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg-password">Password</label>
+                                <input type="password" id="reg-password" placeholder="At least 6 characters" minlength="6" required>
+                            </div>
+
+                            <div class="auth-feedback" id="register-feedback"></div>
+
+                            <button type="submit" class="btn btn-primary btn-block">Create Account & Continue →</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             DASHBOARD 2: CHOOSE CATEGORY (SKINCARE, HAIRCARE, BODYCARE)
+             =================================================================== -->
+        <section class="dashboard-page" id="dashboard-2-categories">
+            <div class="section-center-header">
+                <span class="sub-kicker">STEP 2 OF 4 · SELECT FOCUS</span>
+                <h1 class="page-title">Choose Your Care Category</h1>
+                <p class="page-desc">Select the area you want to formulate personalized recommendations for today.</p>
+            </div>
+
+            <div class="category-cards-grid">
+                <!-- 1. Skincare Card -->
+                <div class="category-selection-card" data-category="skincare" id="card-cat-skincare">
+                    <div class="cat-card-header">
+                        <span class="cat-emoji">🌿</span>
+                        <span class="cat-badge">Dermal Barrier</span>
+                    </div>
+                    <h2 class="cat-title">Skincare</h2>
+                    <p class="cat-text">
+                        Personalized facial regimens formulated for hydration, pore clearing, anti-aging, and moisture barrier protection.
+                    </p>
+                    <ul class="cat-features">
+                        <li>✓ Tailored for dry, oily, combination & sensitive skin</li>
+                        <li>✓ AM Morning Glow & PM Night Repair steps</li>
+                        <li>✓ Bio-active serums, cleansers, creams & SPF</li>
+                    </ul>
+                    <button class="btn btn-cat-action">Select Skincare →</button>
+                </div>
+
+                <!-- 2. Hair Care Card -->
+                <div class="category-selection-card" data-category="haircare" id="card-cat-haircare">
+                    <div class="cat-card-header">
+                        <span class="cat-emoji">💇</span>
+                        <span class="cat-badge">Scalp & Strands</span>
+                    </div>
+                    <h2 class="cat-title">Hair Care</h2>
+                    <p class="cat-text">
+                        Formulations calibrated for scalp balance, strand porosity, curl bounce, and heat/color damage recovery.
+                    </p>
+                    <ul class="cat-features">
+                        <li>✓ Tailored for curly, straight, wavy, and coily patterns</li>
+                        <li>✓ Clarifying cleansers, peptide masks & leave-ins</li>
+                        <li>✓ Scalp prebiotic serums for oily or dry roots</li>
+                    </ul>
+                    <button class="btn btn-cat-action">Select Hair Care →</button>
+                </div>
+
+                <!-- 3. Body Care Card -->
+                <div class="category-selection-card" data-category="bodycare" id="card-cat-bodycare">
+                    <div class="cat-card-header">
+                        <span class="cat-emoji">✨</span>
+                        <span class="cat-badge">Holistic Derma</span>
+                    </div>
+                    <h2 class="cat-title">Body Care</h2>
+                    <p class="cat-text">
+                        Restorative whole-body formulas addressing extreme dryness, keratosis bumps, and daily broad-spectrum UV defense.
+                    </p>
+                    <ul class="cat-features">
+                        <li>✓ Targeted smoothing polishes (Lactic/Urea)</li>
+                        <li>✓ 24hr ceramide lipid balms for eczema & dryness</li>
+                        <li>✓ Broad-spectrum silk mineral SPF 50</li>
+                    </ul>
+                    <button class="btn btn-cat-action">Select Body Care →</button>
+                </div>
+
+                <!-- 4. Lip Care Card -->
+                <div class="category-selection-card" data-category="lipcare" id="card-cat-lipcare">
+                    <div class="cat-card-header">
+                        <span class="cat-emoji">💋</span>
+                        <span class="cat-badge">Lip Barrier</span>
+                    </div>
+                    <h2 class="cat-title">Lip Care</h2>
+                    <p class="cat-text">
+                        Deep cellular restoration for chapped lips, barrier fissures, peptide volumizing plump, and UV lip defense.
+                    </p>
+                    <ul class="cat-features">
+                        <li>✓ Overnight bio-identical peptide lipid sleeping masks</li>
+                        <li>✓ SPF 30 mineral balm shielding against hyperpigmentation</li>
+                        <li>✓ Hypoallergenic cica salves for sensitive peeling</li>
+                    </ul>
+                    <button class="btn btn-cat-action">Select Lip Care →</button>
+                </div>
+
+                <!-- 5. Eye Care Card -->
+                <div class="category-selection-card" data-category="eyecare" id="card-cat-eyecare">
+                    <div class="cat-card-header">
+                        <span class="cat-emoji">👁️</span>
+                        <span class="cat-badge">Orbital Health</span>
+                    </div>
+                    <h2 class="cat-title">Eye Care</h2>
+                    <p class="cat-text">
+                        Targeted orbital drainage for morning fluid puffiness, dark vascular hollows, crow's feet, and crepey lids.
+                    </p>
+                    <ul class="cat-features">
+                        <li>✓ 5% Caffeine & EGCG botanical drainage serums</li>
+                        <li>✓ Matrixyl 3000 & Argireline multi-peptide firmers</li>
+                        <li>✓ Ophthalmologist-tested rich ceramide cushions</li>
+                    </ul>
+                    <button class="btn btn-cat-action">Select Eye Care →</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             DASHBOARD 3: TYPE SELECTION (DRY, OILY, COMBINATION, ETC.)
+             =================================================================== -->
+        <section class="dashboard-page" id="dashboard-3-types">
+            <div class="type-selection-wrapper">
+                <div class="type-nav-top">
+                    <button class="btn btn-back" id="back-to-categories-btn">
+                        ← Back to Categories
+                    </button>
+                    <span class="type-active-category-pill" id="type-category-pill">Skincare Selected</span>
+                </div>
+
+                <div class="section-center-header">
+                    <span class="sub-kicker" id="type-step-kicker">STEP 3 OF 4 · SPECIFIC TYPE</span>
+                    <h1 class="page-title" id="type-page-title">What is your skin type?</h1>
+                    <p class="page-desc" id="type-page-desc">Choose your specific type to calibrate product compatibility and active ingredients.</p>
+                </div>
+
+                <!-- Dynamic Type Cards Container (populated by app.js based on chosen category) -->
+                <div class="types-grid" id="types-cards-grid">
+                    <!-- Cards dynamically rendered here -->
+                </div>
+
+                <!-- Optional Specific Concerns (Multi-select) -->
+                <div class="concerns-section" id="concerns-section">
+                    <h3 class="concerns-title" id="concerns-title">Secondary Focus Areas (Optional):</h3>
+                    <div class="concerns-chips-wrap" id="concerns-chips-wrap">
+                        <!-- Chips dynamically rendered here -->
+                    </div>
+                </div>
+
+                <div class="type-actions-bottom">
+                    <button class="btn btn-primary btn-lg" id="generate-recommendations-btn">
+                        Generate Personalized Recommendations ✦
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             DASHBOARD 4: RECOMMENDED PRODUCTS DASHBOARD
+             =================================================================== -->
+        <section class="dashboard-page" id="dashboard-4-recommendations">
+            <div class="recommendations-container">
+                <!-- Recommendations Header / Summary -->
+                <div class="rec-banner-card">
+                    <div class="rec-banner-left">
+                        <div class="rec-banner-tag">CURATED FORMULATIONS</div>
+                        <h1 class="rec-banner-title" id="rec-banner-title">Personalized Recommendations</h1>
+                        <p class="rec-banner-sub" id="rec-banner-sub">Formulations matched to your profile.</p>
+                    </div>
+                    <div class="rec-banner-actions">
+                        <button class="btn btn-outline-light" id="change-type-btn">Change Type</button>
+                        <button class="btn btn-outline-light" id="change-cat-btn">Change Category</button>
+                        <button class="btn btn-primary" id="view-routine-from-rec-btn">View My Daily Routine 📋</button>
+                    </div>
+                </div>
+
+                <!-- Products & Ingredients to AVOID in Daily Routine Section -->
+                <div class="rec-avoidance-container" id="rec-avoid-section">
+                    <!-- Dynamically populated based on chosen type -->
+                </div>
+
+                <!-- Step / Routine Time & Price Tier Filters -->
+                <div class="rec-filter-bar">
+                    <!-- Price Tier Selector (Budget-Friendly vs Expensive/Luxury) -->
+                    <div class="filter-tier-group" id="rec-tier-filters">
+                        <span class="tier-group-label">Price Filter:</span>
+                        <button class="tier-filter-pill active" data-tier="all">All Tiers</button>
+                        <button class="tier-filter-pill tier-budget" data-tier="budget">🪙 Budget-Friendly ($ · ₹)</button>
+                        <button class="tier-filter-pill tier-luxury" data-tier="luxury">💎 Expensive / Luxury ($$$ · ₹₹₹)</button>
+                    </div>
+
+                    <div class="filter-group-pills" id="rec-step-filters">
+                        <button class="rec-filter-pill active" data-filter="all">All Steps</button>
+                        <button class="rec-filter-pill" data-filter="AM">Morning (AM)</button>
+                        <button class="rec-filter-pill" data-filter="PM">Evening (PM)</button>
+                    </div>
+                    <div class="rec-count-info" id="rec-count-info">Showing recommended products</div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="rec-products-grid">
+                    <!-- Products dynamically rendered -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             MODAL / VIEW: MY SAVED ROUTINE CHECKLIST
+             =================================================================== -->
+        <div class="modal-overlay" id="routine-modal" aria-hidden="true">
+            <div class="modal-card routine-modal-card">
+                <button class="modal-close-btn" id="close-routine-modal-btn" aria-label="Close Routine">&times;</button>
+                
+                <div class="routine-modal-header">
+                    <span class="sub-kicker">HABIT & RECOVERY TRACKER</span>
+                    <h2 class="modal-title">My Daily Beauty Regimen</h2>
+                    <p class="modal-sub">Check off steps daily to ensure maximum active ingredient efficacy.</p>
+                    
+                    <div class="routine-streak-box">
+                        <span class="streak-icon">🔥</span>
+                        <div class="streak-details">
+                            <strong>Daily Adherence Streak: 4 Days</strong>
+                            <span>Consistent barrier restoration delivers 2.4x faster results.</span>
+                        </div>
+                        <button class="btn btn-sm btn-outline" id="reset-daily-steps-btn">Reset Checklist</button>
+                    </div>
+                </div>
+
+                <div class="routine-dual-columns">
+                    <div class="routine-column">
+                        <div class="routine-col-title am">☀️ Morning Routine (AM)</div>
+                        <div class="routine-items-list" id="routine-modal-am-list">
+                            <!-- AM items -->
+                        </div>
+                    </div>
+
+                    <div class="routine-column">
+                        <div class="routine-col-title pm">🌙 Evening Routine (PM)</div>
+                        <div class="routine-items-list" id="routine-modal-pm-list">
+                            <!-- PM items -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             MODAL: PRODUCT DETAIL MODAL
+             =================================================================== -->
+        <div class="modal-overlay" id="product-modal" aria-hidden="true">
+            <div class="modal-card product-modal-card">
+                <button class="modal-close-btn" id="close-product-modal-btn" aria-label="Close Details">&times;</button>
+                <div class="product-modal-content" id="product-modal-content">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toast-notification" role="status" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
